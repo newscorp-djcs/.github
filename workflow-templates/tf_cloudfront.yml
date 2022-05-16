@@ -47,6 +47,7 @@ jobs:
 
   tf_cloudfront_push_production:
     if: env.GITHUB_EVENT_NAME == 'push'
+    uses: newscorp-djcs/tf-cloudfront-shared-actions/.github/workflows/tf_cloudfront.yml@main
     with:
       region:      virginia
       environment: production
@@ -55,6 +56,7 @@ jobs:
 
   tf_cloudfront_push_staging:
     if: env.GITHUB_EVENT_NAME == 'push'
+    uses: newscorp-djcs/tf-cloudfront-shared-actions/.github/workflows/tf_cloudfront.yml@main
     with:
       region:      virginia
       environment: staging
