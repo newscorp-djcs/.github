@@ -1,0 +1,63 @@
+name: tf_cloudfront
+
+on:
+   push:
+     paths:
+       - accounts/conprodwsjbarrons/virginia/**
+       - base/**
+
+   workflow_dispatch:
+    inputs:
+      region:
+        type: choice
+        required: true
+        description: 'aws region choice: virginia, oregon, ohio'
+        default: virginia
+        options:
+          - virginia
+          - oregon
+          - ohio
+      environment:
+        type: choice
+        required: true
+        description: 'environment choice: staging, production'
+        default: staging
+        options:
+          - staging
+          - production
+      action:
+        type: choice
+        required: true
+        description: 'either plan or apply'
+        default: plan
+        options:
+          - plan
+          - apply
+
+jobs:
+
+  tf_cloudfront_workflow_dispatch:
+    if: env.GITHUB_EVENT_NAME == 'workflow_dispatch'
+    uses: newscorp-djcs/tf-cloudfront-shared-actions/.github/workflows/tf_cloudfront.yml@main
+    with:
+      region:      ${{ github.event.inputs.region }}
+      environment: ${{ github.event.inputs.environment }}
+      action:      ${{ github.event.inputs.action }}
+    secrets: inherit
+
+  tf_cloudfront_push_production:
+    if: env.GITHUB_EVENT_NAME == 'push'
+    with:
+      region:      virginia
+      environment: production
+      action:      plan
+    secrets: inherit
+
+  tf_cloudfront_push_staging:
+    if: env.GITHUB_EVENT_NAME == 'push'
+    with:
+      region:      virginia
+      environment: staging
+      action:      plan
+    secrets: inherit
+
