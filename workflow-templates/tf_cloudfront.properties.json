@@ -1,6 +1,7 @@
 {
   "name": "newscorp-djcs organization cloudfront workflow",
   "description": "newscorp-djcs organizaion cloudfront terraform CI starter workflow.",
+  "iconName": "Arch_Amazon-CloudFront_48",
   "categories": [
     "terraform",
     "cloudfront",
