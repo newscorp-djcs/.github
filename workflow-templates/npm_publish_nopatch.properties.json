@@ -1,0 +1,14 @@
+{
+  "name": "newscorp-djcs organization npm publish nopatch workflow",
+  "description": "newscorp-djcs organizaion npm publish nopatch CI starter workflow.",
+  "iconName": "npm",
+  "categories": [
+    "npm",
+    "publish",
+    "nopatch",
+    "djcs"
+  ],
+  "filePatterns": [
+    ".*\\.tf$"
+  ]
+}

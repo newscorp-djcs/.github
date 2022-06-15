@@ -1,0 +1,25 @@
+name: npm_publish_from_folder
+
+on:
+  workflow_dispatch:
+    inputs:
+      NPM_PUBLISH_TAG:
+        type: string
+        required: true
+      INCREMENT_PATCH:
+        type: choice
+        options:
+          - false
+          - true
+        default: false
+
+jobs:
+
+  npm_publish_from_folder:
+    uses: newscorp-djcs/reusable-workflows/.github/workflows/npm_publish_from_folder.yml@main
+    with:
+      PUBLISH_FROM_FOLDER: 'src/npm'
+      NPM_PUBLISH_TAG: ${{ github.event.inputs.NPM_PUBLISH_TAG }}
+      INCREMENT_PATCH: ${{ github.event.inputs.INCREMENT_PATCH }}
+    secrets: inherit
+

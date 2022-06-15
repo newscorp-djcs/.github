@@ -1,0 +1,20 @@
+name: npm_publish_dual_local_GHP
+
+on:
+  workflow_dispatch:
+    inputs:
+      INCREMENT_PATCH:
+        type: choice
+        options:
+          - false
+          - true
+        defaut: false
+
+jobs:
+
+  npm_publish_dual_local_GHP:
+    uses: newscorp-djcs/reusable-workflows/.github/workflows/npm_publish_dual_local_GHP.yml@main
+    with:
+      INCREMENT_PATCH: ${{ github.event.inputs.INCREMENT_PATCH }}
+    secrets: inherit
+

@@ -1,0 +1,14 @@
+{
+  "name": "newscorp-djcs organization npm publish dual workflow",
+  "description": "newscorp-djcs organizaion npm publish dual CI starter workflow.",
+  "iconName": "npm",
+  "categories": [
+    "npm",
+    "publish",
+    "dual",
+    "djcs"
+  ],
+  "filePatterns": [
+    ".*\\.tf$"
+  ]
+}

@@ -1,0 +1,11 @@
+name: npm_publish_nopatch
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  npm_publish_nopatch:
+    uses: newscorp-djcs/reusable-workflows/.github/workflows/npm_publish_nopatch.yml@main
+    secrets: inherit
+
